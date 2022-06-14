@@ -10,16 +10,18 @@
 
 <body>
     <h2>API공부</h2>
+    <p></p>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
         $.ajax({
             method: "GET",
-            url: "some.php",
+            url: "http://openapi.seoul.go.kr:8088/454f6c5047776a643934454d576b45/json/bikeList/1/5/",
             data: { name: "John", location: "Boston" }
         })
             .done(function (msg) {
-                $( "p" ).append( "<strong>Hello</strong>" );
+                console.log(msg);
+                $( "p" ).append( "<strong>" + msg.rentBikeStatus.row[3].stationName + "</strong>" );
                 
             });
     </script>
